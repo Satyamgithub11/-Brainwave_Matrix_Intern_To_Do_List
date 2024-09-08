@@ -1,26 +1,27 @@
-document.getElementById('addBtn').addEventListener('click', addTask);
-
-function addTask() {
+document.getElementById('addTaskBtn').addEventListener('click', function() {
     const taskInput = document.getElementById('taskInput');
-    const taskValue = taskInput.value.trim();
+    const newTaskText = taskInput.value.trim();
 
-    if (taskValue === '') {
-        alert('Please enter a task!');
-        return;
+    if (newTaskText) {
+        const taskList = document.getElementById('taskList');
+        const newTask = document.createElement('li');
+        newTask.innerText = newTaskText;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerText = 'Delete';
+        deleteBtn.classList.add('delete-btn');
+        
+        // Delete task on button click
+        deleteBtn.addEventListener('click', function() {
+            taskList.removeChild(newTask);
+        });
+        
+        newTask.appendChild(deleteBtn);
+        taskList.appendChild(newTask);
+
+        // Clear the input
+        taskInput.value = '';
+    } else {
+        alert('Please enter a task.');
     }
-
-    const taskList = document.getElementById('taskList');
-    const listItem = document.createElement('li');
-    listItem.textContent = taskValue;
-
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = '✖';
-    removeBtn.className = 'remove-btn';
-    removeBtn.onclick = function() {
-        taskList.removeChild(listItem);
-    };
-
-    listItem.appendChild(removeBtn);
-    taskList.appendChild(listItem);
-    taskInput.value = ''; // Clear input field
-}
+});
