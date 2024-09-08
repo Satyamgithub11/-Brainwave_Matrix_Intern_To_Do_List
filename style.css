@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f4f8;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    perspective: 1000px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-area {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li {
+    background: #e7f1ff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    position: relative;
+    perspective: 1000px;
+    transition: transform 0.3s;
+}
+
+.task-list li:hover {
+    transform: rotateY(15deg) scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.remove-btn {
+    background: #d9534f;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
